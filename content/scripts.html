@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="HTML Tidy for HTML5 for Mac OS X version 5.4.0" name="generator">
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta content="Minha página pessoal" name="description">
+  <meta content="Marcelo Vinícius Cysneiros Aragão" name="author">
+  <link href="images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+  <link href="images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+  <title>marcelo.xyz | Scripts</title>
+  <link href="css/bootstrap.css" rel="stylesheet"><!-- Bootstrap core CSS -->
+  <link href="css/jquery.fancybox.css" rel="stylesheet"><!-- jQuery fancyBox -->
+  <link href="css/hover.css" rel="stylesheet"><!-- Hover.css -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'><!-- Roboto (Google Fonts) -->
+  <link href="css/common.css" rel="stylesheet"><!-- Common CSS for all pages -->
+  <link href="css/highlight.min.css" rel="stylesheet"><!-- highlight.js - Syntax highlighting for the Web -->
+
+  <script src="js/highlight.min.js"></script><!-- highlight.js - Syntax highlighting for the Web -->
+
+  <script>
+  hljs.initHighlightingOnLoad();
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span></button> <a class="navbar-brand" href=
+        "index.html">marcelo.xyz</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Graduação</a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="content/ec205.html">EC205 - Engenharia de Software I</a>
+              </li>
+              <li>
+                <a href="content/ec206.html">EC206 - Engenharia de Software II</a>
+              </li>
+              <li>
+                <a href="content/ec016.html">EC016 - Inteligência Artificial</a>
+              </li>
+              <li>
+                <a href="content/ec017.html">EC017 - Redes Neurais</a>
+              </li>
+              <li>
+                <a href="content/ec212.html">EC212 - Computação Gráfica</a>
+              </li>
+              <li>
+                <a href="content/ec215.html">EC215 - Multimídia</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="content/mestrado.html">Mestrado</a>
+          </li>
+          <li>
+            <a href="content/opiniao.html">Opinião</a>
+          </li><!--
+          <li>
+            <a href="content/links.html">Links</a>
+          </li>
+        -->
+          <li class="active">
+            <a href="#">Scripts</a>
+          </li>
+          <li>
+            <a href="content/workshops.html">Workshops</a>
+          </li>
+          <li>
+            <a href="content/contato.html">Contato</a>
+          </li>
+          <li>
+            <a href="http://boca.inatel.br/boca/" target="_blank">BOCA</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="page-header text-center">
+    <h1>Scripts</h1><br>
+  </div>
+  <div class="container panel panel-default">
+    <div class="panel-heading">
+      m-monitor-temp.sh
+    </div>
+    <div class="panel-body">
+      <pre>
+          <code class="bash">
+#!/bin/bash
+# -n 1 : Run every 1 second
+# -d   : Highlight differences
+watch -n 1 -d sensors
+            </code>
+        </pre>
+    </div>
+  </div>
+  <div class="container panel panel-default">
+    <div class="panel-heading">
+      m-sort-folders.sh
+    </div>
+    <div class="panel-body">
+      <pre>
+          <code class="bash">
+#!/bin/bash
+
+if [[ &quot;$#&quot; == &quot;0&quot; ]] ; then
+    FOLDER=$(pwd)
+elif [[ &quot;$#&quot; == &quot;1&quot; ]] ; then
+    FOLDER=$1
+else
+    echo &quot;Usage: ./m-sort-folders.sh [FOLDER]&quot;
+fi
+
+for file in &quot;$FOLDER&quot;/*
+do
+
+    # should not process &#39;_*&#39; directory(ies)
+    if [[ ( $(basename &quot;$file&quot;) == &quot;_&quot;* ) ]] ; then
+        echo &quot;Skipping &#39;$file&#39;&quot;
+        continue;
+    fi
+
+    filename=$(basename &quot;$file&quot;)
+    extension=&quot;${filename##*.}&quot;
+    extension_lower=$(echo &quot;$extension&quot; | tr &#39;[:upper:]&#39; &#39;[:lower:]&#39;)
+    filename=&quot;${filename%.*}&quot;
+
+    # if it is a directory
+    if [[ -d $file ]] ; then
+
+        # if the _dir folder does not exist
+        if [[ ! -d &quot;$FOLDER/_dir&quot; ]] ; then
+            echo &quot;Creating directory $FOLDER/_dir&quot;
+            mkdir &quot;$FOLDER/_dir&quot;
+        fi
+
+        # move the directory to ./_dir
+        echo &quot;Moving directory [$file] to [$FOLDER/_dir/]&quot;
+        mv -f &quot;$file&quot; &quot;$FOLDER/_dir/&quot;
+
+    # if it is a file
+    else
+
+        # if the _$extension folder does not exist
+        if [[ ! -d &quot;$FOLDER/_$extension&quot; ]] ; then
+            echo &quot;Creating directory $FOLDER/_$extension_lower&quot;
+            mkdir &quot;$FOLDER/_$extension_lower&quot;
+        fi
+
+        # move the fire to ./_$extension
+        echo &quot;Moving file [$file] to [$FOLDER/_$extension_lower/]&quot;
+        mv -f &quot;$file&quot; &quot;$FOLDER/_$extension_lower/&quot;
+    fi
+
+done
+            </code>
+        </pre>
+    </div>
+  </div>
+  <div class="container panel panel-default">
+    <div class="panel-heading">
+      m-update-all.sh
+    </div>
+    <div class="panel-body">
+      <pre>
+          <code class="bash">
+#!/bin/bash
+
+if [ &quot;$(id -u)&quot; != &quot;0&quot; ]; then
+    sudo `readlink -f &quot;$0&quot;`
+    exit
+fi
+
+LOGFILE=&quot;.update.log&quot;
+PAD=&quot;----------------------------------------&quot;
+
+echo &quot;$PAD$PAD\nSYSTEM UPDATE STARTED @@ `date`\n$PAD$PAD&quot; &gt; $LOGFILE
+
+echo &quot;`date +%H:%M:%S` apt-get update&quot;
+apt-get update &gt;&gt; $LOGFILE 2&gt;&amp;1
+
+echo &quot;`date +%H:%M:%S` apt-get upgrade&quot;
+apt-get upgrade -y &gt;&gt; $LOGFILE 2&gt;&amp;1
+
+echo &quot;`date +%H:%M:%S` apt-get dist-upgrade&quot;
+apt-get dist-upgrade -y &gt;&gt; $LOGFILE 2&gt;&amp;1
+
+echo &quot;`date +%H:%M:%S` apt-get autoclean&quot;
+apt-get autoclean -y &gt;&gt; $LOGFILE 2&gt;&amp;1
+
+echo &quot;`date +%H:%M:%S` apt-get autoremove&quot;
+apt-get autoremove -y &gt;&gt; $LOGFILE 2&gt;&amp;1
+
+echo &quot;$PAD$PAD\nSYSTEM UPDATE FINISHED @@ `date`\n$PAD$PAD&quot; &gt;&gt; $LOGFILE
+            </code>
+        </pre>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted text-center"><span class="copy-left">©</span> Copyleft 2017 Marcelo Vinícius Cysneiros Aragão - Nenhum direito reservado.</p>
+    </div>
+  </footer><!-- jQuery JavaScript -->
+  <script src="js/jquery.min.js"></script> <!-- Bootstrap core JavaScript -->
+   
+  <script src="js/bootstrap.min.js"></script> 
+  <script src="js/ie10-viewport-bug-workaround.js"></script> <!-- jQuery fancyBox JavaScript -->
+   
+  <script src="js/jquery.fancybox.pack.js"></script> <!-- jQuery fancyBox Setup -->
+   
+  <script type="text/javascript">
+
+
+
+
+
+
+      $(document).ready(function() {
+        $(".fancybox").fancybox();
+      }
+                       );
+  </script>
+</body>
+</html>
