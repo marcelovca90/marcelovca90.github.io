@@ -16,13 +16,15 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'><!-- Common CSS for all pages -->
   <link href="css/common.css" rel="stylesheet">
   <link href="css/psychedelic.css" rel="stylesheet">
+  <style type="text/css">
+  table.c1 {margin: 0 auto}
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span></button> <a class="navbar-brand active"
-        href="#">marcelo.xyz</a>
+        <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span></button> <a class="navbar-brand active" href="#">marcelo.xyz</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="nav navbar-nav">
@@ -76,12 +78,13 @@
     </div>
   </nav>
   <div class="container container-centered">
-    <table style="margin: 0 auto">
+    <table class="c1">
       <tr>
         <td><img alt="COMPUTER_LOOP" class="round-border" src="images/computer-loop-lossy.gif"></td>
       </tr>
-      <tr class="blank_row"><td></td></tr>
-      <!--
+      <tr class="blank_row">
+        <td></td>
+      </tr><!--
       <tr>
         <td>
           <pre>
@@ -109,9 +112,15 @@
     </div>
   </footer>
   <script src="../js/jquery.min.js"></script> <!-- jQuery JavaScript -->
+   
   <script src="../js/bootstrap.min.js"></script> <!-- Bootstrap core JavaScript -->
+   
   <script src="../js/ie10-viewport-bug-workaround.js"></script> <!-- Bootstrap ie10-viewport-bug-workaround -->
+   
   <script src="../js/jquery.fancybox.pack.js"></script> <!-- jQuery fancyBox JavaScript -->
-  <script type="text/javascript"> $(document).ready(function() { $(".fancybox").fancybox(); } ); </script> <!-- jQuery fancyBox Setup -->
+   
+  <script type="text/javascript">
+  $(document).ready(function() { $(".fancybox").fancybox(); } ); 
+  </script> <!-- jQuery fancyBox Setup -->
 </body>
 </html>

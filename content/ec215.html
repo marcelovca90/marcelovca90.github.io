@@ -15,13 +15,15 @@
   <link href="../css/hover.css" rel="stylesheet"><!-- Roboto (Google Fonts) -->
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'><!-- Common CSS for all pages -->
   <link href="../css/common.css" rel="stylesheet">
+  <style type="text/css">
+  td.c1 {vertical-align: middle}
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span></button> <a class="navbar-brand" href=
-        "../index.html">marcelo.xyz</a>
+        <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span></button> <a class="navbar-brand" href="../index.html">marcelo.xyz</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="nav navbar-nav">
@@ -92,8 +94,7 @@
             <a href="http://www.saraiva.com.br/processamento-digital-de-imagens-3-ed-2011-3663494.html" target="_blank"><img alt="MM-GONZALEZ" class="hvr-grow" src="../images/mm-gonzalez.jpg"></a>
           </td>
           <td>
-            <a href="https://www.estantevirtual.com.br/b/oliver-hersent-david-guide-jean-pierre-petit/telefonia-ip-comunicacao-multimidia-baseada-em-pacotes/1594583595" target="_blank"><img alt="MM-HERSENT" class="hvr-grow" src=
-            "../images/mm-hersent.jpg"></a>
+            <a href="https://www.estantevirtual.com.br/b/oliver-hersent-david-guide-jean-pierre-petit/telefonia-ip-comunicacao-multimidia-baseada-em-pacotes/1594583595" target="_blank"><img alt="MM-HERSENT" class="hvr-grow" src="../images/mm-hersent.jpg"></a>
           </td>
         </tr>
         <tr class="blank_row">
@@ -118,7 +119,7 @@
           <th class="text-center">Download(s)</th>
         </tr>
         <tr>
-          <td rowspan="6" style="vertical-align: middle">Carlos Nazareth Motta Marins</td>
+          <td rowspan="6" class="c1">Carlos Nazareth Motta Marins</td>
           <td>Aula 1 - Introdução</td>
           <td>
             <a href="ec215/EC215-Nazareth-Aula1.zip"><img alt="ZIP" border="0" height="32" src="../images/zip.png" width="32"></a>
@@ -155,7 +156,7 @@
           </td>
         </tr>
         <tr>
-          <td rowspan="4" style="vertical-align: middle">Marcelo Vinícius Cysneiros Aragão</td>
+          <td rowspan="4" class="c1">Marcelo Vinícius Cysneiros Aragão</td>
           <td>Aula 1 - Introdução, Multimídia e Hipermídia</td>
           <td>
             <a href="ec215/EC215-Marcelo-Aula1.zip"><img alt="ZIP" border="0" height="32" src="../images/zip.png" width="32"></a>
@@ -180,7 +181,7 @@
           </td>
         </tr>
         <tr>
-          <td rowspan="2" style="vertical-align: middle">Antônio Marcos Alberti</td>
+          <td rowspan="2" class="c1">Antônio Marcos Alberti</td>
           <td>Protocolos para IPTV</td>
           <td>
             <a href="ec215/EC215-Alberti-ProtocolosParaIPTV.zip"><img alt="ZIP" border="0" height="32" src="../images/zip.png" width="32"></a>
@@ -201,9 +202,15 @@
     </div>
   </footer>
   <script src="../js/jquery.min.js"></script> <!-- jQuery JavaScript -->
+   
   <script src="../js/bootstrap.min.js"></script> <!-- Bootstrap core JavaScript -->
+   
   <script src="../js/ie10-viewport-bug-workaround.js"></script> <!-- Bootstrap ie10-viewport-bug-workaround -->
+   
   <script src="../js/jquery.fancybox.pack.js"></script> <!-- jQuery fancyBox JavaScript -->
-  <script type="text/javascript"> $(document).ready(function() { $(".fancybox").fancybox(); } ); </script> <!-- jQuery fancyBox Setup -->
+   
+  <script type="text/javascript">
+  $(document).ready(function() { $(".fancybox").fancybox(); } ); 
+  </script> <!-- jQuery fancyBox Setup -->
 </body>
 </html>
