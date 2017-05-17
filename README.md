@@ -1,6 +1,6 @@
 # marcelovca90.github.io
 
-Repository of my personal website (http://marcelo.xyz/ ou http://marcelovca90.github.io/).
+Repository of my personal website (http://marcelo.xyz/ or http://marcelovca90.github.io/).
 
 * Bachelor's Degree
   * EC205 - Software Engineering I
